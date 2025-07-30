@@ -1,0 +1,12 @@
+{% extends 'library/base.html' %}
+{% block title %}Add Borrower{% endblock %}
+{% block content %}
+<div class="card shadow p-4">
+    <h3 class="mb-4">Add New Borrower</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'library/base.html' %}
+{% block title %}All Books{% endblock %}
+{% block content %}
+<h3 class="mb-3">Books</h3>
+<table class="table table-striped table-hover shadow-sm bg-white">
+    <thead class="table-dark">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>ISBN</th>
+            <th>Published</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.isbn }}</td>
+            <td>{{ book.published_date }}</td>
+            <td>
+                <a href="{% url 'book-detail' book.pk %}" class="btn btn-sm btn-info text-white">View</a>
+                <a href="{% url 'book-update' book.pk %}" class="btn btn-sm btn-warning">Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

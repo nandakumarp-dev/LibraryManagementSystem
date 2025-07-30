@@ -1,0 +1,11 @@
+{% extends 'library/base.html' %}
+{% block title %}Borrower Details{% endblock %}
+{% block content %}
+<div class="card shadow p-4">
+    <h3>{{ borrower.name }}</h3>
+    <p><strong>Email:</strong> {{ borrower.email }}</p>
+    <p><strong>Book:</strong> {{ borrower.book.title }}</p>
+    <p><strong>Borrowed Date:</strong> {{ borrower.borrowed_date }}</p>
+    <a href="{% url 'borrower-update' borrower.pk %}" class="btn btn-warning mt-3">Edit Borrowed Date</a>
+</div>
+{% endblock %}

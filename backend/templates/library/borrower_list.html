@@ -1,0 +1,30 @@
+{% extends 'library/base.html' %}
+{% block title %}All Borrowers{% endblock %}
+{% block content %}
+<h3 class="mb-3">Borrowers</h3>
+<table class="table table-striped table-hover shadow-sm bg-white">
+    <thead class="table-dark">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Book</th>
+            <th>Date Borrowed</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for borrower in borrowers %}
+        <tr>
+            <td>{{ borrower.name }}</td>
+            <td>{{ borrower.email }}</td>
+            <td>{{ borrower.book.title }}</td>
+            <td>{{ borrower.borrowed_date }}</td>
+            <td>
+                <a href="{% url 'borrower-detail' borrower.pk %}" class="btn btn-sm btn-info text-white">View</a>
+                <a href="{% url 'borrower-update' borrower.pk %}" class="btn btn-sm btn-warning">Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

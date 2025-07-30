@@ -1,0 +1,12 @@
+{% extends 'library/base.html' %}
+{% block title %}Edit Borrowed Date{% endblock %}
+{% block content %}
+<div class="card shadow p-4">
+    <h3 class="mb-4">Update Borrowed Date</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Update</button>
+    </form>
+</div>
+{% endblock %}
